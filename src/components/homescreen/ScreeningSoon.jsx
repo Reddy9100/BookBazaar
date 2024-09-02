@@ -16,6 +16,8 @@ const ScreeningSoon = () => {
             <img
               src="https://cdn.shopify.com/s/files/1/0057/3728/3618/products/ItemN241475_jpg_500x749.jpg?v=1641576614"
               alt="pic1"
+              loading='lazy'
+
               className='w-[196px] h-[286px] object-cover'
             />
             <div className='flex justify-around items-center mt-3'>
@@ -28,6 +30,8 @@ const ScreeningSoon = () => {
             <img
               src="https://cdn.shopify.com/s/files/1/0057/3728/3618/products/ItemN241475_jpg_500x749.jpg?v=1641576614"
               alt="pic2"
+              loading='lazy'
+
               className='w-[196px] h-[286px] object-cover'
             />
             <div className='flex justify-around items-center mt-3'>
@@ -40,6 +44,8 @@ const ScreeningSoon = () => {
             <img
               src="https://cdn.shopify.com/s/files/1/0057/3728/3618/products/ItemN241475_jpg_500x749.jpg?v=1641576614"
               alt="pic3"
+              loading='lazy'
+
               className='w-[196px] h-[286px] object-cover'
             />
             <div className='flex justify-around items-center mt-3'>
@@ -52,6 +58,8 @@ const ScreeningSoon = () => {
             <img
               src="https://cdn.shopify.com/s/files/1/0057/3728/3618/products/ItemN241475_jpg_500x749.jpg?v=1641576614"
               alt="pic4"
+              loading='lazy'
+
               className='w-[196px] h-[286px] object-cover'
             />
             <div className='flex justify-around items-center mt-3'>
@@ -64,6 +72,8 @@ const ScreeningSoon = () => {
             <img
               src="https://cdn.shopify.com/s/files/1/0057/3728/3618/products/ItemN241475_jpg_500x749.jpg?v=1641576614"
               alt="pic5"
+              loading='lazy'
+
               className='w-[196px] h-[286px] object-cover'
             />
             <div className='flex justify-around items-center mt-3'>
@@ -76,6 +86,8 @@ const ScreeningSoon = () => {
             <img
               src="https://cdn.shopify.com/s/files/1/0057/3728/3618/products/ItemN241475_jpg_500x749.jpg?v=1641576614"
               alt="pic6"
+              loading='lazy'
+
               className='w-[196px] h-[286px] object-cover'
             />
             <div className='flex justify-around items-center mt-3'>
@@ -88,6 +100,7 @@ const ScreeningSoon = () => {
             <img
               src="https://cdn.shopify.com/s/files/1/0057/3728/3618/products/ItemN241475_jpg_500x749.jpg?v=1641576614"
               alt="pic7"
+              loading='lazy'
               className='w-[196px] h-[286px] object-cover'
             />
             <div className='flex justify-around items-center mt-3'>
@@ -100,6 +113,7 @@ const ScreeningSoon = () => {
             <img
               src="https://cdn.shopify.com/s/files/1/0057/3728/3618/products/ItemN241475_jpg_500x749.jpg?v=1641576614"
               alt="pic8"
+              loading='lazy'
               className='w-[196px] h-[286px] object-cover'
             />
             <div className='flex justify-around items-center mt-3'>

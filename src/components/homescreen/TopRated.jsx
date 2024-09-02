@@ -9,14 +9,14 @@ const TopRated = () => {
             <GrFormNext className="text-2xl bg-blue-700 rounded-full"/>
        </div>
        <div className='flex overflow-x-scroll scrollbar-hide space-x-4'>
-            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/hungergames.MPW-136443_500x749.jpg?v=1708452738" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
-            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/hungergames.MPW-136443_500x749.jpg?v=1708452738" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
-            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/hungergames.MPW-136443_500x749.jpg?v=1708452738" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
-            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/hungergames.MPW-136443_500x749.jpg?v=1708452738" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
-            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/hungergames.MPW-136443_500x749.jpg?v=1708452738" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
-            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/hungergames.MPW-136443_500x749.jpg?v=1708452738" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
-            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/hungergames.MPW-136443_500x749.jpg?v=1708452738" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
-            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/hungergames.MPW-136443_500x749.jpg?v=1708452738" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
+            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/hungergames.MPW-136443_500x749.jpg?v=1708452738" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0' loading='lazy'/>
+            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/hungergames.MPW-136443_500x749.jpg?v=1708452738" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0' loading='lazy'/>
+            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/hungergames.MPW-136443_500x749.jpg?v=1708452738" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0' loading='lazy'/>
+            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/hungergames.MPW-136443_500x749.jpg?v=1708452738" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0' loading='lazy'/>
+            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/hungergames.MPW-136443_500x749.jpg?v=1708452738" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0' loading='lazy'/>
+            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/hungergames.MPW-136443_500x749.jpg?v=1708452738" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0' loading='lazy'/>
+            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/hungergames.MPW-136443_500x749.jpg?v=1708452738" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0' loading='lazy'/>
+            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/hungergames.MPW-136443_500x749.jpg?v=1708452738" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0' loading='lazy'/>
         </div>
     </div>
     </div>
