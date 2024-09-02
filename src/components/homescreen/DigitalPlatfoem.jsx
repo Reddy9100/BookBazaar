@@ -12,7 +12,7 @@ const DigitalPlatform = () => {
         <div className='flex flex-col justify-between'>
   {/* Image */}
   <img 
-    src="https://www.movieposters.com/cdn/shop/files/wednesday.tv_240x360_crop_center.progressive.jpg?v=1689352362" 
+    src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/ItemR81771_jpg_500x749.jpg?v=1694023916" 
     alt="Platform Image" 
     className='w-[196px] h-[286px] flex-shrink-0'
   />
@@ -29,7 +29,7 @@ const DigitalPlatform = () => {
 <div className='flex flex-col justify-between'>
   {/* Image */}
   <img 
-    src="https://www.movieposters.com/cdn/shop/files/wednesday.tv_240x360_crop_center.progressive.jpg?v=1689352362" 
+    src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/ItemR81771_jpg_500x749.jpg?v=1694023916" 
     alt="Platform Image" 
     className='w-[196px] h-[286px] flex-shrink-0'
   />
@@ -46,7 +46,7 @@ const DigitalPlatform = () => {
 <div className='flex flex-col justify-between'>
   {/* Image */}
   <img 
-    src="https://www.movieposters.com/cdn/shop/files/wednesday.tv_240x360_crop_center.progressive.jpg?v=1689352362" 
+    src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/ItemR81771_jpg_500x749.jpg?v=1694023916" 
     alt="Platform Image" 
     className='w-[196px] h-[286px] flex-shrink-0'
   />
@@ -63,7 +63,7 @@ const DigitalPlatform = () => {
 <div className='flex flex-col justify-between'>
   {/* Image */}
   <img 
-    src="https://www.movieposters.com/cdn/shop/files/wednesday.tv_240x360_crop_center.progressive.jpg?v=1689352362" 
+    src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/ItemR81771_jpg_500x749.jpg?v=1694023916" 
     alt="Platform Image" 
     className='w-[196px] h-[286px] flex-shrink-0'
   />
@@ -80,7 +80,7 @@ const DigitalPlatform = () => {
 <div className='flex flex-col justify-between'>
   {/* Image */}
   <img 
-    src="https://www.movieposters.com/cdn/shop/files/wednesday.tv_240x360_crop_center.progressive.jpg?v=1689352362" 
+    src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/ItemR81771_jpg_500x749.jpg?v=1694023916" 
     alt="Platform Image" 
     className='w-[196px] h-[286px] flex-shrink-0'
   />
@@ -97,7 +97,7 @@ const DigitalPlatform = () => {
 <div className='flex flex-col justify-between'>
   {/* Image */}
   <img 
-    src="https://www.movieposters.com/cdn/shop/files/wednesday.tv_240x360_crop_center.progressive.jpg?v=1689352362" 
+    src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/ItemR81771_jpg_500x749.jpg?v=1694023916" 
     alt="Platform Image" 
     className='w-[196px] h-[286px] flex-shrink-0'
   />
@@ -114,7 +114,7 @@ const DigitalPlatform = () => {
 <div className='flex flex-col justify-between'>
   {/* Image */}
   <img 
-    src="https://www.movieposters.com/cdn/shop/files/wednesday.tv_240x360_crop_center.progressive.jpg?v=1689352362" 
+    src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/ItemR81771_jpg_500x749.jpg?v=1694023916" 
     alt="Platform Image" 
     className='w-[196px] h-[286px] flex-shrink-0'
   />

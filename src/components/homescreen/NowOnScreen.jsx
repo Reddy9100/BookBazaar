@@ -10,14 +10,14 @@ const NowOnScreen = () => {
             <GrFormNext className="text-2xl bg-blue-700 rounded-full"/>
        </div>
        <div className='flex overflow-x-scroll scrollbar-hide space-x-4'>
-            <img src="https://www.movieposters.com/cdn/shop/files/wednesday.tv_240x360_crop_center.progressive.jpg?v=1689352362" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
-            <img src="https://www.movieposters.com/cdn/shop/files/wednesday.tv_240x360_crop_center.progressive.jpg?v=1689352362" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
-            <img src="https://www.movieposters.com/cdn/shop/files/wednesday.tv_240x360_crop_center.progressive.jpg?v=1689352362" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
-            <img src="https://www.movieposters.com/cdn/shop/files/wednesday.tv_240x360_crop_center.progressive.jpg?v=1689352362" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
-            <img src="https://www.movieposters.com/cdn/shop/files/wednesday.tv_240x360_crop_center.progressive.jpg?v=1689352362" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
-            <img src="https://www.movieposters.com/cdn/shop/files/wednesday.tv_240x360_crop_center.progressive.jpg?v=1689352362" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
-            <img src="https://www.movieposters.com/cdn/shop/files/wednesday.tv_240x360_crop_center.progressive.jpg?v=1689352362" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
-            <img src="https://www.movieposters.com/cdn/shop/files/wednesday.tv_240x360_crop_center.progressive.jpg?v=1689352362" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
+            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/spiderman2002.adv.24x36_500x749.jpg?v=1709822787" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
+            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/spiderman2002.adv.24x36_500x749.jpg?v=1709822787" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
+            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/spiderman2002.adv.24x36_500x749.jpg?v=1709822787" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
+            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/spiderman2002.adv.24x36_500x749.jpg?v=1709822787" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
+            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/spiderman2002.adv.24x36_500x749.jpg?v=1709822787" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
+            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/spiderman2002.adv.24x36_500x749.jpg?v=1709822787" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
+            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/spiderman2002.adv.24x36_500x749.jpg?v=1709822787" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
+            <img src="https://cdn.shopify.com/s/files/1/0057/3728/3618/files/spiderman2002.adv.24x36_500x749.jpg?v=1709822787" alt="pic1" className='w-[196px] h-[286px] flex-shrink-0'/>
         </div>
     </div>
   );

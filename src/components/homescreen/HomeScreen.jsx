@@ -5,10 +5,11 @@ import TopRated from './TopRated';
 import ScreeningSoon from './ScreeningSoon';
 import Advertisements from './Advertisements';
 import DigitalPlatform from './DigitalPlatfoem';
+import GenreSection from './GenreSection';
 const HomeScreen = () => {
 
         return (
-          <div className="container h-[50vh] mx-auto">
+          <div className="container h-[350px]  mx-auto">
             <Carousel
               autoplay
               dots
@@ -16,23 +17,28 @@ const HomeScreen = () => {
               className="rounded-lg shadow-lg"
             >
               <div className=" flex items-center justify-center bg-blue-500 text-white">
-                <img src='https://cdn.shopify.com/s/files/1/0057/3728/3618/files/ItemP8475_jpg_500x749.jpg?v=1694528506' className=' w-full'/>
+                <img src='https://preview.redd.it/telugu-cinema-doesnt-focus-much-on-poster-design-now-but-v0-v41ep26oqrac1.jpeg?width=1000&format=pjpg&auto=webp&s=2ff421ee96632dac11fad88d872fd1c7dd50d2a0' className='h-[300px] w-full'/>
               </div>
               <div className=" flex items-center justify-center bg-green-500 text-white">
-              <img src='https://cdn.shopify.com/s/files/1/0057/3728/3618/files/ItemP8475_jpg_500x749.jpg?v=1694528506' className=' w-full'/>
+              <img src='https://preview.redd.it/telugu-cinema-doesnt-focus-much-on-poster-design-now-but-v0-v41ep26oqrac1.jpeg?width=1000&format=pjpg&auto=webp&s=2ff421ee96632dac11fad88d872fd1c7dd50d2a0' className='h-[300px] w-full'/>
               </div>
               <div className=" flex items-center justify-center bg-red-500 text-white">
-              <img src='https://cdn.shopify.com/s/files/1/0057/3728/3618/files/ItemP8475_jpg_500x749.jpg?v=1694528506' className=' w-full'/>
+              <img src='https://preview.redd.it/telugu-cinema-doesnt-focus-much-on-poster-design-now-but-v0-v41ep26oqrac1.jpeg?width=1000&format=pjpg&auto=webp&s=2ff421ee96632dac11fad88d872fd1c7dd50d2a0' className='h-[300px] w-full'/>
               </div>
               <div className=" flex items-center justify-center bg-purple-500 text-white">
-              <img src='https://cdn.shopify.com/s/files/1/0057/3728/3618/files/ItemP8475_jpg_500x749.jpg?v=1694528506' className=' w-full'/>
+              <img src='https://preview.redd.it/telugu-cinema-doesnt-focus-much-on-poster-design-now-but-v0-v41ep26oqrac1.jpeg?width=1000&format=pjpg&auto=webp&s=2ff421ee96632dac11fad88d872fd1c7dd50d2a0' className='h-[300px] w-full'/>
               </div>
             </Carousel>
+            <div className='flex justify-around bg-black mx-auto p-4 '>
+            <button className='w-[200px] bg-slate-900 font-semibold text-white p-2 rounded-md'>Book My Tickets</button>
+            <button className='w-[50px] bg-slate-900 font-semibold text-white p-2 rounded-md'>+</button>
+            </div>
             <NowOnScreen/>
             <TopRated/>
             <ScreeningSoon/>
             <Advertisements/>
             <DigitalPlatform/>
+            <GenreSection/>
           </div>
         );
       
