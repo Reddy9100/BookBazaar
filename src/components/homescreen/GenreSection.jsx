@@ -5,7 +5,7 @@ const GenreSection = () => {
 
   const genres = [
     'All', 'Action', 'Comedy', 'Drama', 'Romance', 'Sports', 'Fantasy',
-    'Horror', 'Adventure', 'Thriller', 'Crime', 'Science Fiction', 'Western', 'Mystery'
+    'Horror', 'Adventure', 'Thriller', 'Crime', 'SciFi', 'Western', 'Mystery'
   ];
 
   const handleGenreClick = (genre) => {
@@ -13,16 +13,16 @@ const GenreSection = () => {
   };
 
   return (
-    <div className='bg-black p-4 pb-40'>
+    <div className=' p-4 pb-32' style={{backgroundColor : "#0E0E12"}}>
       <div className='flex justify-between items-center text-white py-4'>
-        <h1 className='text-xl font-semibold'>Genres Junction</h1>
+        <h1 className='text-[18px] font-semibold text-[#ECEDF0]'>Genres Junction</h1>
       </div>
       <div className='flex overflow-x-scroll scrollbar-hide overflow-y-hidden space-x-2 mb-4'>
         {genres.map((genre, index) => (
-          <div key={index} className='h-[35px] w-[120px] flex items-center justify-center'>
+          <div key={index} className='h-[28px] w-[120px] flex items-center justify-center'>
             <button
               onClick={() => handleGenreClick(genre)}
-              className={`text-sm px-2 font-semibold w-full h-full flex items-center justify-center ${activeGenre === genre ? 'bg-white text-black' : 'bg-gray-900 text-gray-500'}`}
+              className={`text-sm px-2 font-semibold w-full h-full flex items-center justify-center ${activeGenre === genre ? 'bg-[#ECEDF0] text-[#222227]' : 'bg-[#222227] text-[#6A7185]'}`}
             >
               {genre}
             </button>
@@ -30,22 +30,22 @@ const GenreSection = () => {
         ))}
       </div>
       <div className='grid grid-cols-3 gap-2'>
-        <img src="https://iansportalimages.s3.amazonaws.com/images/202310143069407.jpeg" alt="pic1" className='w-[300px] h-[160px] flex-shrink-0 ' loading='lazy'/>
-        <img src="https://static-koimoi.akamaized.net/wp-content/new-galleries/2023/07/bholaa-shankar-001.jpg" alt="pic1" className='w-[300px] h-[160px] flex-shrink-0' loading='lazy'/>
-        <img src="https://wallpaperaccess.com/full/9041172.jpg" alt="pic1" className='w-[300px] h-[160px] flex-shrink-0' loading='lazy'/>
-        <img src="https://th.bing.com/th/id/OIP.C9Zt_s2ppySfjKwgwurgjwHaMu?rs=1&pid=ImgDetMain" alt="pic1" className='w-[300px] h-[160px] flex-shrink-0' loading='lazy'/>
-        <img src="https://image.tmdb.org/t/p/original/6S4BRlZPfzrludhsPDPVe6fEoxV.jpg" alt="pic1" className='w-[300px] h-[160px] flex-shrink-0' loading='lazy'/>
-        <img src="https://th.bing.com/th/id/OIP.dqkUusnLGPoZNDmpzmb73QAAAA?rs=1&pid=ImgDetMain" alt="pic1" className='w-[300px] h-[160px] flex-shrink-0' loading='lazy'/>
-        <img src="https://iansportalimages.s3.amazonaws.com/images/202310143069407.jpeg" alt="pic1" className='w-[300px] h-[160px] flex-shrink-0' loading='lazy'/>
-        <img src="https://static-koimoi.akamaized.net/wp-content/new-galleries/2023/07/bholaa-shankar-001.jpg" alt="pic1" className='w-[300px] h-[160px] flex-shrink-0' loading='lazy'/>
-        <img src="https://wallpaperaccess.com/full/9041172.jpg" alt="pic1" className='w-[300px] h-[160px] flex-shrink-0' loading='lazy'/>
-        <img src="https://th.bing.com/th/id/OIP.C9Zt_s2ppySfjKwgwurgjwHaMu?rs=1&pid=ImgDetMain" alt="pic1" className='w-[300px] h-[160px] flex-shrink-0' loading='lazy'/>
-        <img src="https://image.tmdb.org/t/p/original/6S4BRlZPfzrludhsPDPVe6fEoxV.jpg" alt="pic1" className='w-[300px] h-[160px] flex-shrink-0' loading='lazy'/>
-        <img src="https://th.bing.com/th/id/OIP.dqkUusnLGPoZNDmpzmb73QAAAA?rs=1&pid=ImgDetMain" alt="pic1" className='w-[300px] h-[160px] flex-shrink-0' loading='lazy'/>
-        <img src="https://iansportalimages.s3.amazonaws.com/images/202310143069407.jpeg" alt="pic1" className='w-[300px] h-[160px] flex-shrink-0' loading='lazy'/>
-        <img src="https://static-koimoi.akamaized.net/wp-content/new-galleries/2023/07/bholaa-shankar-001.jpg" alt="pic1" className='w-[300px] h-[160px] flex-shrink-0' loading='lazy'/>
+        <img src="https://iansportalimages.s3.amazonaws.com/images/202310144069407.jpeg" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0 ' loading='lazy'/>
+        <img src="https://static-koimoi.akamaized.net/wp-content/new-galleries/2023/07/bholaa-shankar-001.jpg" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0' loading='lazy'/>
+        <img src="https://wallpaperaccess.com/full/9041172.jpg" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0' loading='lazy'/>
+        <img src="https://th.bing.com/th/id/OIP.C9Zt_s2ppySfjKwgwurgjwHaMu?rs=1&pid=ImgDetMain" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0' loading='lazy'/>
+        <img src="https://image.tmdb.org/t/p/original/6S4BRlZPfzrludhsPDPVe6fEoxV.jpg" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0' loading='lazy'/>
+        <img src="https://th.bing.com/th/id/OIP.dqkUusnLGPoZNDmpzmb73QAAAA?rs=1&pid=ImgDetMain" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0' loading='lazy'/>
+        <img src="https://iansportalimages.s3.amazonaws.com/images/202310144069407.jpeg" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0' loading='lazy'/>
+        <img src="https://static-koimoi.akamaized.net/wp-content/new-galleries/2023/07/bholaa-shankar-001.jpg" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0' loading='lazy'/>
+        <img src="https://wallpaperaccess.com/full/9041172.jpg" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0' loading='lazy'/>
+        <img src="https://th.bing.com/th/id/OIP.C9Zt_s2ppySfjKwgwurgjwHaMu?rs=1&pid=ImgDetMain" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0' loading='lazy'/>
+        <img src="https://image.tmdb.org/t/p/original/6S4BRlZPfzrludhsPDPVe6fEoxV.jpg" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0' loading='lazy'/>
+        <img src="https://th.bing.com/th/id/OIP.dqkUusnLGPoZNDmpzmb73QAAAA?rs=1&pid=ImgDetMain" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0' loading='lazy'/>
+        <img src="https://iansportalimages.s3.amazonaws.com/images/202310144069407.jpeg" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0' loading='lazy'/>
+        <img src="https://static-koimoi.akamaized.net/wp-content/new-galleries/2023/07/bholaa-shankar-001.jpg" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0' loading='lazy'/>
       </div>
-      <button className='bg-gray-900 text-gray-500 w-full mt-4 p-2'>View More</button>
+      <button className='bg-[#222227] text-[#6A7185] w-full font-normal  mt-4 p-2' style={{fontSize : "14px" ,fontWeight: "500"}}>View More</button>
     </div>
   );
 }

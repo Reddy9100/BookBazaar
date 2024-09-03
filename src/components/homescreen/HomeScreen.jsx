@@ -1,48 +1,163 @@
-import React from 'react'
+import React from 'react';
 import { Carousel } from 'antd';
 import NowOnScreen from './NowOnScreen';
 import TopRated from './TopRated';
 import ScreeningSoon from './ScreeningSoon';
 import Advertisements from './Advertisements';
-import DigitalPlatform from './DigitalPlatfoem';
+import DigitalPlatform from './DigitalPlatfoem'; // Fixed typo in the import
 import GenreSection from './GenreSection';
-const HomeScreen = () => {
+import pic from '../../assets/gk1.jpg';
+import logo from '../../assets/title.png';
+import { IoMdNotifications } from "react-icons/io";
+import { FaPlus } from "react-icons/fa6";
 
-        return (
-          <div className="container h-[350px]  mx-auto">
-            <Carousel
-              autoplay
-              dots
-              dotPosition="bottom"
-              className="rounded-lg shadow-lg"
-            >
-              <div className=" flex items-center justify-center bg-blue-500 text-white">
-                <img src='https://preview.redd.it/telugu-cinema-doesnt-focus-much-on-poster-design-now-but-v0-v41ep26oqrac1.jpeg?width=1000&format=pjpg&auto=webp&s=2ff421ee96632dac11fad88d872fd1c7dd50d2a0' className='h-[300px] w-full' loading='lazy'/>
-              </div>
-              <div className=" flex items-center justify-center bg-green-500 text-white">
-              <img src='https://preview.redd.it/telugu-cinema-doesnt-focus-much-on-poster-design-now-but-v0-v41ep26oqrac1.jpeg?width=1000&format=pjpg&auto=webp&s=2ff421ee96632dac11fad88d872fd1c7dd50d2a0' className='h-[300px] w-full' loading='lazy'/>
-              </div>
-              <div className=" flex items-center justify-center bg-red-500 text-white">
-              <img src='https://preview.redd.it/telugu-cinema-doesnt-focus-much-on-poster-design-now-but-v0-v41ep26oqrac1.jpeg?width=1000&format=pjpg&auto=webp&s=2ff421ee96632dac11fad88d872fd1c7dd50d2a0' className='h-[300px] w-full' loading='lazy'/>
-              </div>
-              <div className=" flex items-center justify-center bg-purple-500 text-white">
-              <img src='https://preview.redd.it/telugu-cinema-doesnt-focus-much-on-poster-design-now-but-v0-v41ep26oqrac1.jpeg?width=1000&format=pjpg&auto=webp&s=2ff421ee96632dac11fad88d872fd1c7dd50d2a0' className='h-[300px] w-full' loading='lazy'/>
-              </div>
-            </Carousel>
-            <div className='flex justify-around bg-black mx-auto p-4 '>
-            <button className='w-[200px] bg-slate-900 font-semibold text-white p-3 rounded-md'>Book My Tickets</button>
-            <button className='w-[50px] bg-slate-900 font-semibold text-white p-3 rounded-md'>+</button>
-            </div>
-            <NowOnScreen/>
-            <TopRated/>
-            <ScreeningSoon/>
-            <Advertisements/>
-            <DigitalPlatform/>
-            <GenreSection/>
+
+const HomeScreen = () => {
+  return (
+    <>
+    <div style={{background:"#0E0E12"}}>
+      <Carousel
+        autoplay
+        dots
+        dotPosition="bottom"
+        className="rounded-lg shadow-lg"
+      >
+        <div className="relative h-[360px] w-full">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `linear-gradient(180deg, rgba(14, 14, 18, 0) 0%, rgba(14, 14, 18, 0.91) 79%, #0E0E12 94%), url(${pic})`,
+            }}
+            
+          />
+          <div className="flex flex-col justify-end items-center h-full relative z-10 pb-4">
+            <img src={logo} alt="logo" className="w-auto h-auto max-w-xs" />
+            <ul className="flex justify-center pb-3 space-x-4 text-xs font-medium text-[#C5C8D0]">
+              <li className="relative ">
+                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2 before:text-green-500 before:font-bold before:shadow-md before:text-lg">
+                  Soon Up
+                </span>
+              </li>
+              <li className="relative">
+                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                  Romance
+                </span>
+              </li>
+              <li className="relative">
+                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                  Scifi
+                </span>
+              </li>
+              <li className="relative">
+                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                  Musical
+                </span>
+              </li>
+              <li className="relative bg-gray-900 px-1 rounded-sm">
+                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                  U/A
+                </span>
+              </li>
+            </ul>
           </div>
-        );
+        </div>
+
+        <div className="relative h-[360px] w-full">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `linear-gradient(180deg, rgba(14, 14, 18, 0) 0%, rgba(14, 14, 18, 0.91) 79%, #0E0E12 94%), url(${pic})`,
+            }}
+          />
+          <div className="flex flex-col justify-end items-center h-full relative z-10 pb-4">
+            <img src={logo} alt="logo" className="w-auto h-auto max-w-xs" />
+            <ul className="flex justify-center pb-3 space-x-4 text-xs font-medium text-[#C5C8D0]">
+              <li className="relative ">
+                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2 before:text-green-500 before:font-bold before:shadow-md before:text-lg">
+                  Soon Up
+                </span>
+              </li>
+              <li className="relative">
+                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                  Romance
+                </span>
+              </li>
+              <li className="relative">
+                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                  Scifi
+                </span>
+              </li>
+              <li className="relative">
+                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                  Musical
+                </span>
+              </li>
+              <li className="relative bg-gray-900 px-1 rounded-sm">
+                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                  U/A
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="relative h-[360px] w-full">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `linear-gradient(180deg, rgba(14, 14, 18, 0) 0%, rgba(14, 14, 18, 0.91) 79%, #0E0E12 94%), url(${pic})`,
+            }}
+          />
+          <div className="flex flex-col justify-end items-center h-full relative z-10 pb-4">
+            <img src={logo} alt="logo" className="w-auto h-auto max-w-xs" />
+            <ul className="flex justify-center pb-3 space-x-4 text-xs font-medium text-[#C5C8D0]">
+              <li className="relative ">
+                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2 before:text-green-500 before:font-bold before:shadow-md before:text-lg">
+                  Soon Up
+                </span>
+              </li>
+              <li className="relative">
+                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                  Romance
+                </span>
+              </li>
+              <li className="relative">
+                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                  Scifi
+                </span>
+              </li>
+              <li className="relative">
+                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                  Musical
+                </span>
+              </li>
+              <li className="relative bg-gray-900 px-1 rounded-sm">
+                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                  U/A
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </Carousel>
       
+        <div className="flex gap-2 mx-4 mt-4">
+            <div className="flex justify-center items-center w-[80vw] p-2 bg-[#222227] rounded-md">
+                <IoMdNotifications className='text-[#C5C8D0] text-md font-bold'/>
+                <p className='text-[#C5C8D0] font-semibold ml-1'>Notify Me</p>
+            </div>
+            <div className="p-2 bg-[#222227] w-[15vw] flex justify-center items-center text-[#C5C8D0] rounded-md font-bold"><button><FaPlus /></button></div>
+        </div>
+    </div>
       
+      <NowOnScreen />
+      <TopRated />
+      <ScreeningSoon />
+      <Advertisements />
+      <DigitalPlatform />
+      <GenreSection />
+    </>
+  );
 }
 
-export default HomeScreen
+export default HomeScreen;
