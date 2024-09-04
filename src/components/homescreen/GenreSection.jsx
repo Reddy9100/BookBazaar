@@ -19,10 +19,10 @@ const GenreSection = () => {
       </div>
       <div className='flex overflow-x-scroll scrollbar-hide overflow-y-hidden space-x-2 mb-4'>
         {genres.map((genre, index) => (
-          <div key={index} className='h-[28px] w-[120px] flex items-center justify-center'>
+          <div key={index} className='h-[30px] w-[120px] flex items-center justify-center'>
             <button
               onClick={() => handleGenreClick(genre)}
-              className={`text-sm px-2 font-semibold w-full h-full flex items-center justify-center ${activeGenre === genre ? 'bg-[#ECEDF0] text-[#222227]' : 'bg-[#222227] text-[#6A7185]'}`}
+              className={`text-sm px-3 font-semibold w-full h-full flex items-center justify-center ${activeGenre === genre ? 'bg-[#ECEDF0] text-[#222227]' : 'bg-[#222227] text-[#6A7185]'}`}
             >
               {genre}
             </button>

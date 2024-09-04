@@ -8,6 +8,17 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [ function ({ addUtilities }) {
+    addUtilities({
+      '.scrollbar-hide': {
+        '&::-webkit-scrollbar': {
+          display: 'none',
+        },
+        '-ms-overflow-style': 'none', /* IE 10+ */
+        'scrollbar-width': 'none', /* Firefox */
+      },
+    });
+    },
+],
 }
 

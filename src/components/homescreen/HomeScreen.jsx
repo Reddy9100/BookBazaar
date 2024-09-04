@@ -18,9 +18,9 @@ const HomeScreen = () => {
     <div style={{background:"#0E0E12"}}>
       <Carousel
         autoplay
-        dots
-        dotPosition="bottom"
-        className="rounded-lg shadow-lg"
+        dots={true}
+
+        className="rounded-full shadow-lg"
       >
         <div className="relative h-[360px] w-full">
           <div
@@ -141,12 +141,12 @@ const HomeScreen = () => {
         </div>
       </Carousel>
       
-        <div className="flex gap-2 mx-4 mt-4">
-            <div className="flex justify-center items-center w-[80vw] p-2 bg-[#222227] rounded-md">
+        <div className="flex gap-2 mx-8 mt-4">
+            <div className="flex justify-center items-center w-[80vw] p-3 bg-[#222227] rounded-md">
                 <IoMdNotifications className='text-[#C5C8D0] text-md font-bold'/>
                 <p className='text-[#C5C8D0] font-semibold ml-1'>Notify Me</p>
             </div>
-            <div className="p-2 bg-[#222227] w-[15vw] flex justify-center items-center text-[#C5C8D0] rounded-md font-bold"><button><FaPlus /></button></div>
+            <div className="p-3 bg-[#222227] w-[15vw] flex justify-center items-center text-[#C5C8D0] rounded-md font-bold"><button><FaPlus /></button></div>
         </div>
     </div>
       
