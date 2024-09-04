@@ -1,14 +1,15 @@
 import React from 'react'
-import { GrFormNext } from "react-icons/gr";
+import arrow from "../../assets/arrow.svg"
+
 const DigitalPlatform = () => {
   return (
     <div>
         <div className='p-4' style={{backgroundColor : "#0E0E12"}}>
        <div className='flex justify-between items-center text-white mb-4'>
             <h1 className='text-[18px] font-semibold text-[#ECEDF0]'>Digital Platform</h1>
-            <GrFormNext className="text-2xl w-[18px] h-[18px] bg-[#0067B3] rounded-full"/>
+            <img src={arrow} className="text-2xl w-[18px] h-[18px] bg-[#0067B3] rounded-full"/>
        </div>
-       <div className='flex overflow-x-scroll scrollbar-hide space-x-4'>
+       <div className='flex gap-[10px] overflow-x-scroll scrollbar-hide'>
         <div className='flex flex-col justify-between'>
   {/* Image */}
   <img 
