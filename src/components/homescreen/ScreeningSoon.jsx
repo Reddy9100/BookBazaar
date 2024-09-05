@@ -22,7 +22,7 @@ const ScreeningSoon = () => {
             />
             <div className='flex w-[153px] justify-around items-center mt-3'>
            <img src={release} className='font-bold mr-1  w-[60px] h-[32px] object-fill mb-1'/>
-           <hr className=' mb rounded-md-[1px] mr-1 h-[2px] transform rotate-90' style={{backgroundColor : "rgba(197, 200, 208, 0.40)"}}/>
+           <hr className=' mb-[1px] rounded-md-[1px] mr-1 h-[2px] transform rotate-90' style={{backgroundColor : "rgba(197, 200, 208, 0.40)"}}/>
            <p className='font-normal' style={{color:" #222227" , fontSize : "12px" ,fontWeight : "700"}}>28 Sep 2023</p>
            </div>
           </div>

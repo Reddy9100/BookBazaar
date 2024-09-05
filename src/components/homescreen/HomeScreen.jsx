@@ -35,27 +35,27 @@ const HomeScreen = () => {
             <img src={logo} alt="logo" className="w-auto h-auto max-w-xs" />
             <ul className="flex text-xs justify-around items-center pb-3 space-x-4  font-bold text-[#C5C8D0]">
               <li className="relative ">
-                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2 before:text-green-500 before:font-bold before:shadow-md before:text-lg">
+                <span className="before:content-['•'] before:absolute font-bold before:-left-2 before:top-1/2 before:-translate-y-1/2 before:text-green-500 before:font-bold before:shadow-md before:text-lg">
                   Soon Up
                 </span>
               </li>
               <li className="relative">
-                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                <span className="before:content-['•'] before:absolute font-bold before:-left-2 before:top-1/2 before:-translate-y-1/2">
                   Romance
                 </span>
               </li>
               <li className="relative">
-                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                <span className="before:content-['•'] before:absolute font-bold before:-left-2 before:top-1/2 before:-translate-y-1/2">
                   Scifi
                 </span>
               </li>
               <li className="relative">
-                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                <span className="before:content-['•'] before:absolute font-bold before:-left-2 before:top-1/2 before:-translate-y-1/2">
                   Musical
                 </span>
               </li>
               <li className="relative bg-[#2B2D34] font-semibold  h-[18px] w-[30px]  flex justify-center items-center   rounded-sm">
-                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                <span className="before:content-['•'] before:absolute font-bold before:-left-2 before:top-1/2 before:-translate-y-1/2">
                   U/A
                 </span>
               </li>
@@ -74,27 +74,27 @@ const HomeScreen = () => {
             <img src={logo} alt="logo" className="w-auto h-auto max-w-xs" />
             <ul className="flex justify-center pb-3 space-x-4 text-xs font-medium text-[#C5C8D0]">
               <li className="relative ">
-                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2 before:text-green-500 before:font-bold before:shadow-md before:text-lg">
+                <span className="before:content-['•'] before:absolute font-bold before:-left-2 before:top-1/2 before:-translate-y-1/2 before:text-green-500 before:font-bold before:shadow-md before:text-lg">
                   Soon Up
                 </span>
               </li>
               <li className="relative">
-                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                <span className="before:content-['•'] before:absolute font-bold before:-left-2 before:top-1/2 before:-translate-y-1/2">
                   Romance
                 </span>
               </li>
               <li className="relative">
-                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                <span className="before:content-['•'] before:absolute font-bold before:-left-2 before:top-1/2 before:-translate-y-1/2">
                   Scifi
                 </span>
               </li>
               <li className="relative">
-                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                <span className="before:content-['•'] before:absolute font-bold before:-left-2 before:top-1/2 before:-translate-y-1/2">
                   Musical
                 </span>
               </li>
               <li className="relative bg-[#2B2D34] font-semibold   h-[18px] w-[30px] flex justify-center items-center  rounded-sm">
-                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                <span className="before:content-['•'] before:absolute font-bold before:-left-2 before:top-1/2 before:-translate-y-1/2">
                   U/A
                 </span>
               </li>
@@ -113,27 +113,27 @@ const HomeScreen = () => {
             <img src={logo} alt="logo" className="w-auto h-auto max-w-xs" />
             <ul className="flex justify-center pb-3 space-x-4 text-xs font-medium text-[#C5C8D0]">
               <li className="relative ">
-                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2 before:text-green-500 before:font-bold before:shadow-md before:text-lg">
+                <span className="before:content-['•'] before:absolute font-bold before:-left-2 before:top-1/2 before:-translate-y-1/2 before:text-green-500 before:font-bold before:shadow-md before:text-lg">
                   Soon Up
                 </span>
               </li>
               <li className="relative">
-                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                <span className="before:content-['•'] before:absolute font-bold before:-left-2 before:top-1/2 before:-translate-y-1/2">
                   Romance
                 </span>
               </li>
               <li className="relative">
-                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                <span className="before:content-['•'] before:absolute font-bold before:-left-2 before:top-1/2 before:-translate-y-1/2">
                   Scifi
                 </span>
               </li>
               <li className="relative">
-                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2">
+                <span className="before:content-['•'] before:absolute font-bold before:-left-2 before:top-1/2 before:-translate-y-1/2">
                   Musical
                 </span>
               </li>
               <li className="relative bg-[#2B2D34] font-semibold  h-[18px] w-[30px] flex justify-center items-center  rounded-sm">
-                <span className="before:content-['•'] before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2 ">
+                <span className="before:content-['•'] before:absolute font-bold before:-left-2 before:top-1/2 before:-translate-y-1/2 ">
                   U/A
                 </span>
               </li>
