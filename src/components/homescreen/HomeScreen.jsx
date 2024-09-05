@@ -142,7 +142,7 @@ const HomeScreen = () => {
         </div>
       </Carousel>
       
-        <div className="flex justify-around w-[320px] text-[14px] h-[48px] gap-2 p-3 mt-4">
+        <div className="flex mx-auto w-[320px] text-[14px] h-[48px] gap-2 p-3 mt-4">
             <div className="flex justify-center items-center w-[260px] h-[48px]  bg-[#222227] rounded-md">
                 <img src={notify} className='text-[#C5C8D0] text-md font-bold'/>
                 <p className='text-[#C5C8D0]  font-semibold ml-2'>Notify Me</p>
