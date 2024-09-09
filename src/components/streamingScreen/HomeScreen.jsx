@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
 import { Carousel } from 'antd';
-import NowOnScreen from './NowOnScreen';
+
 import TopRated from './TopRated';
+import { Link } from 'react-router-dom';
 import ScreeningSoon from './ScreeningSoon';
 import Advertisements from './Advertisements';
 import DigitalPlatform from './DigitalPlatfoem'; // Fixed typo in the import
 import GenreSection from './GenreSection';
-import pic from '../../assets/gk1.jpg';
-import logo from '../../assets/title.png';
+import pic from '../../assets/avatar.jpg';
+import logo from '../../assets/avatitle.png';
 import notify from "../../assets/notify.svg";
 import wish from "../../assets/wish.svg";
 import unwish from "../../assets/unwish.svg";
-import { useNavigate,Link } from 'react-router-dom';
+import NewOnPlatform from './NowOnScreen';
+import TopRatedOTT from './TopRated';
+import ScreeningSoonOtt from './ScreeningSoon';
+import WebseriesOtt from './Webseries';
+import Shortfilms from './Shortfilms';
+import FlixiooForYou from './fFxioForYou';
+import PlatformApp from './platforms';
+import { useNavigate } from 'react-router-dom';
 
-const HomeScreen = () => {
-  const [activeButton, setActiveButton] = useState('screening'); // Default active button
+const OTTHomeScreen = () => {
+  const [activeButton, setActiveButton] = useState('streaming'); // Default active button
   const navigate = useNavigate();
 
   const handleButtonClick = (button) => {
@@ -127,11 +135,14 @@ const HomeScreen = () => {
         <br />
       </div>
 
-      <NowOnScreen />
-      <TopRated />
-      <ScreeningSoon />
+      <NewOnPlatform />
+      <TopRatedOTT />
+      <ScreeningSoonOtt />
+      <WebseriesOtt />
+      <Shortfilms/>
+      <FlixiooForYou/>
       <Advertisements />
-      
+      <PlatformApp/>
       <GenreSection />
       
       {/* Fixed bottom navigation bar */}
@@ -162,4 +173,4 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;
+export default OTTHomeScreen;
