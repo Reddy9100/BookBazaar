@@ -11,7 +11,7 @@ const Navbar = () => {
     navigate("/")
   }
   return (
-    <div className="navbar-mobile font-sans  fixed bottom-0 left-0 right-0 h-[64px] bg-[#0E0E12] shadow-lg  flex justify-around items-center text-gray-700 2xl:hidden">
+    <div className="navbar-mobile font-sans fixed bottom-0 left-0 right-0 h-[12vh] bg-[#0E0E12] shadow-lg  flex justify-around items-center text-gray-700 2xl:hidden">
       <div className='flex flex-col justify-around items-center hover:text-[#ECEDF0] mt-2' onClick={NavigateToHome}>
         <FaHome className=' text-[#6A7185] h-[24px] w-[24px] hover:text-[#ECEDF0] transition duration-200 ease-in-out'/>
         <p className='mt-1 text-[10px] '>Home</p>

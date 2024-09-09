@@ -13,7 +13,7 @@ const HotstarComponent = () => {
     }
 
   return (
-    <div className='h-[89vh] bg-[#0E0E12] overflow-y-auto pb-12'>
+    <div className='h-[89vh] bg-[#0E0E12] overflow-y-auto pb-20'>
         <div className='h-[240px] relative' style={{
             background:
                 "linear-gradient(to bottom,rgba(1, 20, 124, 1),rgba(1, 20, 124, 0)",

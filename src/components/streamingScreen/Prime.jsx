@@ -12,7 +12,7 @@ const PrimevideoComponent = () => {
         navigate("/OttHome")
       }
   return (
-    <div className='h-[89vh] bg-[#0E0E12] overflow-y-auto pb-12'>
+    <div className='h-[89vh] bg-[#0E0E12] overflow-y-auto pb-20'>
         <div className='h-[240px] relative' style={{
             background:
                 "linear-gradient(to bottom,rgba(26, 152, 255, 1),rgba(26, 152, 255, 0)",
