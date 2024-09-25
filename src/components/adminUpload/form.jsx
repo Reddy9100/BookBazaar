@@ -30,7 +30,7 @@ const CelestiForm = () => {
     formPayload.append('category', formData.category);
 
     try {
-      const response = await axios.post('http://localhost:5000/upload', formPayload, {
+      const response = await axios.post('https://celestiaserver.onrender.com/upload', formPayload, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -45,7 +45,7 @@ const CelestiForm = () => {
 
   const fetchSongs = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/songs'); // Endpoint that returns songs
+      const response = await axios.get('https://celestiaserver.onrender.com/songs'); // Endpoint that returns songs
       console.log('Fetched songs:', response.data); // Log the fetched songs
 
       // Create Blob URLs for each song
