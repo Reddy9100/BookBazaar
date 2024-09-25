@@ -14,27 +14,7 @@ import unwish from "../../assets/unwish.svg";
 import { useNavigate,Link } from 'react-router-dom';
 
 const HomeScreen = () => {
-  const [activeButton, setActiveButton] = useState('screening'); // Default active button
-  const navigate = useNavigate();
 
-  const handleButtonClick = (button) => {
-    setActiveButton(button);
-    switch (button) {
-      case 'screening':
-        navigate('/'); // Navigate to the Screening route
-        break;
-      case 'streaming':
-        navigate('/OttHome'); // Navigate to the Streaming route
-        break;
-      case 'posters':
-        navigate('/posters'); // Navigate to the Posters route
-        break;
-      default:
-        break;
-    }
-
-
-  };
   const [currentSlide, setCurrentSlide] = useState(0);
   const totalSlides = 3; // Update this to the actual number of slides
 
@@ -50,7 +30,7 @@ const HomeScreen = () => {
   const carouselRef = React.useRef();
 
   return (
-    <>
+    <div>
       <div style={{ background: "#0E0E12" }}>
         <Carousel
           autoplay
@@ -133,33 +113,7 @@ const HomeScreen = () => {
       <Advertisements />
       
       <GenreSection />
-      
-      {/* Fixed bottom navigation bar */}
-      <div className='flex justify-center items-center fixed bottom-20 w-[280px] h-[38px] left-1/2 transform -translate-x-1/2 bg-[#222227] px-2 rounded-full'>
-  <div className='flex justify-between w-full text-[12px] font-medium items-center'>
-    <button
-      className={`text-white px-2 py-1 w-[80px] h-[30px] rounded-full transition-all duration-300 ${activeButton === 'screening' ? 'bg-[#3E4491]' : 'bg-transparent text-[#ECEDF0]'}`}
-      onClick={() => handleButtonClick('screening')}
-    >
-      Screening
-    </button>
-    <button
-      className={`text-white px-2 py-1 w-[80px] h-[30px] rounded-full transition-all duration-300 ${activeButton === 'streaming' ? 'bg-[#3E4491]' : 'bg-transparent text-[#ECEDF0]'}`}
-      onClick={() => handleButtonClick('streaming')}
-    >
-      Streaming
-    </button>
-    <button
-      className={`text-white px-2 py-1 w-[80px] h-[30px] rounded-full transition-all duration-300 ${activeButton === 'posters' ? 'bg-[#3E4491]' : 'bg-transparent text-[#ECEDF0]'}`}
-      onClick={() => handleButtonClick('posters')}
-    >
-      Posters
-    </button>
-  </div>
-</div>
-
-    </>
+      </div>
   );
-};
-
+}
 export default HomeScreen;

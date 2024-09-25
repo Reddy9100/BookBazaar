@@ -6,6 +6,11 @@ export default {
       fontFamily: {
         sans: ['"Open Sans"', 'sans-serif'],
       },
+      colors: {
+        'spotify-primary': '#1DB954', 
+        'spotify-secondary': '#191414', 
+        'spotify-accent': '#1ED760', 
+      },
     },
   },
   plugins: [ function ({ addUtilities }) {
