@@ -73,14 +73,12 @@ const CelestiForm = () => {
     if (currentSongIndex < songs.length - 1) {
       setCurrentSongIndex(currentSongIndex + 1);
     } else {
-      setCurrentSongIndex(0); // Loop back to the first song
+      setCurrentSongIndex(0); 
     }
-    setIsPlaying(false); // Reset play state when changing songs
+    setIsPlaying(false); 
   };
 
-  const handlePlayPause = () => {
-    setIsPlaying(!isPlaying);
-  };
+  
 
   return (
     <div className="flex flex-col justify-center items-center h-auto p-5 bg-black">
@@ -142,7 +140,7 @@ const CelestiForm = () => {
           <div className="flex flex-col items-center bg-gray-800 p-4 rounded-lg">
             <h2 className="text-white text-lg">Now Playing: {songs[currentSongIndex].filename}</h2>
             <ReactAudioPlayer
-              src={songs[currentSongIndex].blobUrl} // Use the Blob URL from the song object
+              src={songs[currentSongIndex].blobUrl} 
               autoPlay={isPlaying}
               controls
               onEnded={playNextSong} // Move to the next song when the current one ends
