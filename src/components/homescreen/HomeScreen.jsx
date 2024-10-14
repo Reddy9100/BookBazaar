@@ -1,22 +1,34 @@
-import React, { useState } from 'react';
-import { Carousel } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { useBooksContext } from '../Context/BooksContext';
+import { Carousel, Skeleton, Drawer, Rate } from 'antd';
 import NowOnScreen from './NowOnScreen';
 import TopRated from './TopRated';
 import ScreeningSoon from './ScreeningSoon';
-import Advertisements from './Advertisements';
-import DigitalPlatform from './DigitalPlatfoem'; // Fixed typo in the import
+import Advertisements from './Advertisements'; 
 import GenreSection from './GenreSection';
-import pic from '../../assets/gk1.jpg';
-import logo from '../../assets/title.png';
-import notify from "../../assets/notify.svg";
-import wish from "../../assets/wish.svg";
-import unwish from "../../assets/unwish.svg";
-import { useNavigate,Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useCartContext } from '../Context/CartContext';
+import Cookie from "js-cookie";
+import { IoMdAdd, IoMdRemove } from "react-icons/io";
 
 const HomeScreen = () => {
-
+  const { books, loading, error } = useBooksContext();
   const [currentSlide, setCurrentSlide] = useState(0);
-  const totalSlides = 3; // Update this to the actual number of slides
+  const [drawerVisible, setDrawerVisible] = useState(false);
+  const [selectedBook, setSelectedBook] = useState(null);
+  const [quantity, setQuantity] = useState(1); // Local state for quantity
+  const carouselRef = React.useRef();
+  const navigate = useNavigate();
+  const { addToCart } = useCartContext();
+
+  useEffect(() => {
+    const validUser = Cookie.get("userToken");
+    if (!validUser) {
+      navigate("/login");
+    }
+  }, [navigate]);
+
+  const carouselBooks = books.slice(0, 5);
 
   const handleChange = (current) => {
     setCurrentSlide(current);
@@ -24,10 +36,57 @@ const HomeScreen = () => {
 
   const handleDotClick = (index) => {
     setCurrentSlide(index);
-    carouselRef.current.goTo(index); // Navigate to the selected slide
+    carouselRef.current.goTo(index);
   };
 
-  const carouselRef = React.useRef();
+  const openDrawer = (book) => {
+    setSelectedBook(book);
+    setQuantity(1); // Reset quantity when opening the drawer
+    setDrawerVisible(true);
+  };
+
+  const closeDrawer = () => {
+    setDrawerVisible(false);
+    setSelectedBook(null);
+  };
+
+  const handleAddToCart = () => {
+    if (selectedBook) {
+      const itemToAdd = { ...selectedBook, quantity };
+      addToCart(itemToAdd);
+      closeDrawer(); // Optionally close the drawer after adding to cart
+    }
+  };
+
+  if (loading) {
+    return (
+      <div style={{ background: "#0E0E12" }}>
+        <Carousel
+          autoplay
+          dots={false}
+          ref={carouselRef}
+          afterChange={handleChange}
+          className="rounded-full shadow-lg"
+        >
+          {Array.from({ length: 5 }).map((_, index) => (
+            <div className="relative h-[400px] w-full" key={index}>
+              <Skeleton active className="h-full w-full" />
+            </div>
+          ))}
+        </Carousel>
+        <div className="flex mt-1 relative justify-center space-x-1">
+          {Array.from({ length: 5 }).map((_, index) => (
+            <div key={index} className="w-[6px] h-[6px] rounded-full bg-spotify-accent" />
+          ))}
+        </div>
+        <br />
+      </div>
+    );
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   return (
     <div>
@@ -39,71 +98,32 @@ const HomeScreen = () => {
           afterChange={handleChange}
           className="rounded-full shadow-lg"
         >
-          {/* Carousel slides */}
-          {Array.from({ length: totalSlides }).map((_, index) => (
-            <div className="relative h-[360px] w-full" key={index}>
+          {carouselBooks.map((book, index) => (
+            <div className="relative h-[400px] w-full" key={index} onClick={() => openDrawer(book)}>
               <div
-                className="absolute inset-0 bg-cover bg-center"
+                className="absolute inset-0 bg-contain bg-center"
                 style={{
-                  backgroundImage: `linear-gradient(180deg, rgba(14, 14, 18, 0) 0%, rgba(14, 14, 18, 0.91) 79%, #0E0E12 94%), url(${pic})`,
+                  backgroundImage: `linear-gradient(180deg, rgba(14, 14, 18, 0) 0%, rgba(14, 14, 18, 0.91) 79%, #0E0E12 94%), url(${book.picture})`,
                 }}
               />
-              <div className="flex flex-col justify-end items-center h-full relative z-10 pb-4">
-                <img src={logo} alt="logo" className="w-auto h-auto max-w-xs" />
-                <ul className="flex justify-center pb-3 space-x-4 text-xs font-medium text-[#C5C8D0]">
-                  <li className="relative ">
-                    <span className="before:content-['•'] before:absolute font-bold before:-left-2 before:top-1/2 before:-translate-y-1/2 before:text-green-500 before:font-bold before:shadow-md before:text-lg">
-                      Soon Up
-                    </span>
-                  </li>
-                  <li className="relative">
-                    <span className="before:content-['•'] before:absolute font-bold before:-left-2 before:top-1/2 before:-translate-y-1/2">
-                      Romance
-                    </span>
-                  </li>
-                  <li className="relative">
-                    <span className="before:content-['•'] before:absolute font-bold before:-left-2 before:top-1/2 before:-translate-y-1/2">
-                      Scifi
-                    </span>
-                  </li>
-                  <li className="relative">
-                    <span className="before:content-['•'] before:absolute font-bold before:-left-2 before:top-1/2 before:-translate-y-1/2">
-                      Musical
-                    </span>
-                  </li>
-                  <li className="relative bg-[#2B2D34] font-semibold h-[18px] w-[30px] flex justify-center items-center rounded-sm">
-                    <span className="before:content-['•'] before:absolute font-bold before:-left-2 before:top-1/2 before:-translate-y-1/2" style={{ fontWeight: "500" }}>
-                      U/A
-                    </span>
-                  </li>
-                </ul>
+              <div className="flex flex-col justify-end items-start ml-4 h-full relative z-10 pb-4">
+                <h2 className="text-xl font-bold text-white">{book.title}</h2>
+                <p className="text-sm text-gray-400">{book.author}</p>
               </div>
             </div>
-            
           ))}
-          
         </Carousel>
-
-        {/* Custom Dots */}
-        <div className="flex relative justify-center space-x-1 -mt-5">
-          {Array.from({ length: totalSlides }).map((_, index) => (
+        
+        <div className="flex mt-1 relative justify-center space-x-1">
+          {carouselBooks.map((_, index) => (
             <div
               key={index}
               onClick={() => handleDotClick(index)}
-              className={`w-[6px] h-[6px] rounded-full cursor-pointer ${currentSlide === index ? 'bg-[#C5C8D0]' : 'bg-[#3F465D]'}`}
+              className={`w-[6px] h-[6px] rounded-full cursor-pointer ${currentSlide === index ? 'bg-spotify-accent' : 'bg-main'}`}
             />
           ))}
         </div>
-
-        <div className="flex mx-auto w-[320px] text-[14px] h-[48px] gap-2 p-3 mt-1">
-          <div className="flex justify-center items-center w-[260px] h-[48px] bg-[#222227] rounded-md">
-            <Link to = "/OttHome"><img src={notify} className='text-[#C5C8D0] text-md font-bold' /></Link>
-            <p className='text-[#C5C8D0] font-bold ml-2'>Notify Me</p>
-          </div>
-          <div className="p-3 bg-[#222227] w-[15vw] h-[48px] flex justify-center items-center text-[#C5C8D0] rounded-md font-bold">
-            <button><img src={wish} /></button>
-          </div>
-        </div>
+        
         <br />
       </div>
 
@@ -111,9 +131,58 @@ const HomeScreen = () => {
       <TopRated />
       <ScreeningSoon />
       <Advertisements />
-      
       <GenreSection />
-      </div>
+
+      <Drawer
+        title={
+          <div className="flex flex-col justify-center items-center text-white mb-4">
+            <hr className="bg-spotify-accent white w-11 h-1 rounded-lg" />
+            <span className="text-gray-200 mt-2 font-semibold">
+              {selectedBook ? selectedBook.title : ""}
+            </span>
+          </div>
+        }
+        placement="bottom"
+        closable={false}
+        onClose={closeDrawer}
+        style={{ backgroundColor: "#222227" }}
+        open={drawerVisible}
+        height={350}
+      >
+        {selectedBook && (
+          <div className="p-4 rounded-lg">
+            <img
+              src={selectedBook.picture}
+              alt={selectedBook.title}
+              className="w-full h-[250px] object-contain rounded-lg mb-2"
+            />
+            <p className="text-lg font-semibold text-gray-200 mb-2">Author: {selectedBook.author}</p>
+            <p className="text-gray-400 text-sm leading-relaxed mb-2">{selectedBook.description}</p>
+            <Rate disabled allowHalf value={selectedBook.rating} className="text-yellow-300 mb-2" />
+            <p className="text-white">Price: {selectedBook.price}</p>
+            <div className="flex mt-4 items-center justify-between">
+              <button
+                onClick={() => setQuantity(Math.max(quantity - 1, 1))}
+                className="bg-white bg-opacity-80 border border-white/10 text-red-600 p-2 rounded-lg shadow-lg"
+              >
+                <IoMdRemove />
+              </button>
+              <span className="text-white">{quantity}</span>
+              <button
+                onClick={() => setQuantity(quantity + 1)}
+                className="bg-white bg-opacity-80 border border-white/10 text-green-600 p-2 rounded-lg shadow-lg"
+              >
+                <IoMdAdd />
+              </button>
+            </div>
+            <button onClick={handleAddToCart} className="bg-slate-50 w-full p-2 rounded-md mt-2 text-black font-semibold">
+              Add To Cart
+            </button>
+          </div>
+        )}
+      </Drawer>
+    </div>
   );
 }
+
 export default HomeScreen;
