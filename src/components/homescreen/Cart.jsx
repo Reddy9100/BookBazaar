@@ -1,12 +1,14 @@
 import React from 'react';
 import { useCartContext } from "../Context/CartContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoMdCart, IoMdCloseCircleOutline, IoMdRemove, IoMdRemoveCircleOutline } from 'react-icons/io';
 import { FaRupeeSign } from 'react-icons/fa';
+import empty from "../../assets/emptyCart.json"
+import Lottie from 'lottie-react';
 
 const Cart = () => {
     const { cart, removeFromCart, clearCart } = useCartContext();
-
+    const navigate = useNavigate()
     // Calculate total price
     const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
@@ -18,7 +20,11 @@ const Cart = () => {
                     
                 </div>
                 {cart.length === 0 ? (
+                    <>
+                    <Lottie animationData={empty} className='h-[150px]'/>
                     <p className="text-center text-gray-400">Your cart is empty.</p>
+                    <button className='rounded-lg mt-3 p-2 animate-pulse bg-white text-spotify-accent' onClick={()=>navigate("/")}>Shop Now</button>
+                    </>
                 ) : (
                     
                     <div className="w-full">

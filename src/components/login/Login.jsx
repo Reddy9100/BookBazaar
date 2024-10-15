@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
+import login from "../../assets/login.json"
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Lottie from "lottie-react";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [Otp, setOtp] = useState("");
@@ -43,9 +45,10 @@ const Login = () => {
           onSubmit={onFormSubmit}
         >
           <h1 className="text-gray-400 text-center">
-            Welcome to <span className="text-spotify-accent">Celestia</span>
+            Welcome to <span className="text-spotify-accent">BookBazaar</span>
           </h1>
-          <Link to="/login"><h1 className="text-white text-xl font-semibold text-center">
+          <Lottie animationData={login} className="h-[150px]"/>
+          <Link to="/login"><h1 className="text-white mt-2 text-xl font-semibold text-center">
             Login
           </h1></Link>
           <input
@@ -58,7 +61,7 @@ const Login = () => {
           />
           <button
             type="submit"
-            className="bg-main text-white rounded-lg w-36 p-2 mt-6"
+            className="bg-main animate-wiggle text-white rounded-lg w-36 p-2 mt-6"
           >
             Send Otp
           </button>

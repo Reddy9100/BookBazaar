@@ -103,14 +103,14 @@ const TopRated = () => {
         {!showAll && Horror.length > 5 && (
           <button
             onClick={handleShowAll}
-            className="w-[140px] h-[286px] flex-shrink-0 bg-[#222227] flex flex-col relative"
+            className="w-[154px] flex flex-col justify-center items-center h-[216px] flex-shrink-0 bg-[#222227]  "
           >
             <img
               src={view}
               alt="view"
-              className="flex-shrink-0 text-white bg-[#0067B3] p-3 rounded-full w-[48px] h-[48px] absolute top-[108px] left-[49px]"
+              className="flex-shrink-0 text-white bg-[#0067B3] p-3 rounded-full w-[48px] h-[48px]  top-[90px] left-[49px]"
             />
-            <p className="text-[#A9ADB9] text-xs font-semibold w-[65px] h-[16px] absolute top-[162px] left-[40px]">
+            <p className="text-[#A9ADB9] text-xs mt-1 font-semibold w-[65px] h-[16px] top-[162px] left-[40px]">
               View More
             </p>
           </button>
@@ -120,7 +120,7 @@ const TopRated = () => {
       <Drawer
         title={
           <div className="flex flex-col justify-center items-center text-white mb-4">
-            <hr className="bg-spotify-accent white w-11 h-1 rounded-lg" />
+            <hr className="bg-spotify-accent white w-11 h-1 rounded-lg animate-wiggle" onClick={closeDrawer}/>
             <span className="text-gray-200 mt-2 font-semibold">
               {selectedBook ? selectedBook.title : ""}
             </span>
@@ -131,7 +131,7 @@ const TopRated = () => {
         onClose={closeDrawer}
         style={{ backgroundColor: "#222227" }}
         open={drawerVisible}
-        height={350}
+       height={500}
       >
         {selectedBook && (
           <div className="p-4 rounded-lg">

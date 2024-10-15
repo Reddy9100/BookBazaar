@@ -119,7 +119,7 @@ const NowOnScreen = () => {
       <Drawer
         title={
           <div className="flex flex-col justify-center items-center text-white mb-4">
-            <hr className="bg-spotify-accent white w-11 h-1 rounded-lg" />
+            <hr className="bg-spotify-accent white w-11 h-1 rounded-lg animate-wiggle" onClick={closeDrawer}/>
             <span className="text-gray-200 mt-2 font-semibold">
               {selectedBook ? selectedBook.title : ""}
             </span>
@@ -130,7 +130,7 @@ const NowOnScreen = () => {
         onClose={closeDrawer}
         style={{ backgroundColor: "#222227" }}
         open={drawerVisible}
-        height={350}
+        height={500}
       >
         {selectedBook && (
           <div className="p-4 rounded-lg">

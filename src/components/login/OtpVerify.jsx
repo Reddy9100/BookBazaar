@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios"; // Import Axios for API calls
 import toast, { Toaster } from "react-hot-toast";
+import login from "../../assets/login.json";
+import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
 import Cookie from "js-cookie"
 const OtpVerify = () => {
@@ -84,7 +86,9 @@ const navigate = useNavigate()
           Enter OTP sent to {Email}
         </h2>
 
-        <div className="flex justify-around">
+        <Lottie animationData={login} className="h-[150px]"/>
+
+        <div className="flex mt-2 justify-around">
           {otpDigits.map((digit, index) => (
             <input
               key={index}
@@ -107,7 +111,7 @@ const navigate = useNavigate()
         </div>
         <button
           type="submit"
-          className="bg-spotify-accent text-white rounded-lg w-full p-2 mt-6"
+          className="bg-spotify-accent animate-wiggle text-white rounded-lg w-full p-2 mt-6"
         >
           Verify OTP
         </button>

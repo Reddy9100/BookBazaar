@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useBooksContext } from '../Context/BooksContext';
-import { Carousel, Skeleton, Drawer, Rate } from 'antd';
+import { Carousel, Skeleton, Drawer, Rate,Tooltip } from 'antd';
 import NowOnScreen from './NowOnScreen';
 import TopRated from './TopRated';
 import ScreeningSoon from './ScreeningSoon';
@@ -16,7 +16,7 @@ const HomeScreen = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [drawerVisible, setDrawerVisible] = useState(false);
   const [selectedBook, setSelectedBook] = useState(null);
-  const [quantity, setQuantity] = useState(1); // Local state for quantity
+  const [quantity, setQuantity] = useState(1); 
   const carouselRef = React.useRef();
   const navigate = useNavigate();
   const { addToCart } = useCartContext();
@@ -41,7 +41,7 @@ const HomeScreen = () => {
 
   const openDrawer = (book) => {
     setSelectedBook(book);
-    setQuantity(1); // Reset quantity when opening the drawer
+    setQuantity(1); 
     setDrawerVisible(true);
   };
 
@@ -54,7 +54,7 @@ const HomeScreen = () => {
     if (selectedBook) {
       const itemToAdd = { ...selectedBook, quantity };
       addToCart(itemToAdd);
-      closeDrawer(); // Optionally close the drawer after adding to cart
+      closeDrawer();
     }
   };
 
@@ -101,9 +101,13 @@ const HomeScreen = () => {
           {carouselBooks.map((book, index) => (
             <div className="relative h-[400px] w-full" key={index} onClick={() => openDrawer(book)}>
               <div
-                className="absolute inset-0 bg-contain bg-center"
+                className="absolute inset-0 bg-cover bg-center"
                 style={{
                   backgroundImage: `linear-gradient(180deg, rgba(14, 14, 18, 0) 0%, rgba(14, 14, 18, 0.91) 79%, #0E0E12 94%), url(${book.picture})`,
+                  height:"360px",
+                  width: "100%",
+                  backgroundSize: "contain",
+backgroundPosition: "center"
                 }}
               />
               <div className="flex flex-col justify-end items-start ml-4 h-full relative z-10 pb-4">
@@ -136,7 +140,7 @@ const HomeScreen = () => {
       <Drawer
         title={
           <div className="flex flex-col justify-center items-center text-white mb-4">
-            <hr className="bg-spotify-accent white w-11 h-1 rounded-lg" />
+            <hr className="bg-spotify-accent white w-11 h-1 rounded-lg animate-wiggle" onClick={closeDrawer} />
             <span className="text-gray-200 mt-2 font-semibold">
               {selectedBook ? selectedBook.title : ""}
             </span>
@@ -147,7 +151,8 @@ const HomeScreen = () => {
         onClose={closeDrawer}
         style={{ backgroundColor: "#222227" }}
         open={drawerVisible}
-        height={350}
+        height={500}
+        
       >
         {selectedBook && (
           <div className="p-4 rounded-lg">

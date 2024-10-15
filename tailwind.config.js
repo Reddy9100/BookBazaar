@@ -16,6 +16,15 @@ export default {
         'spotify-accent': '#1ED760', 
         'text':'#0E0E12'
       },
+      animation:{
+        wiggle : "wiggle 3s linear infinite"
+      },
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { backgroundColor : "green" },
+          '50%': {backgroundColor :"red"},
+        },
+      }
     },
   },
   plugins: [ function ({ addUtilities }) {
