@@ -104,7 +104,7 @@ const HomeScreen = () => {
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
                   backgroundImage: `linear-gradient(180deg, rgba(14, 14, 18, 0) 0%, rgba(14, 14, 18, 0.91) 79%, #0E0E12 94%), url(${book.picture})`,
-                  height:"360px",
+                  height:"300px",
                   width: "100%",
                   backgroundSize: "contain",
 backgroundPosition: "center"

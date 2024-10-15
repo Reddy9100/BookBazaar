@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
+import { useBooksContext } from '../Context/BooksContext';
 
 const GenreSection = () => {
-  const [activeGenre, setActiveGenre] = useState('All'); // Default 'All' is active
-
+  const [activeGenre, setActiveGenre] = useState('All');
+  const { books } = useBooksContext(); // Assuming this contains all books
   const genres = [
     'All', 'Action', 'Comedy', 'Drama', 'Romance', 'Sports', 'Fantasy',
     'Horror', 'Adventure', 'Thriller', 'Crime', 'SciFi', 'Western', 'Mystery'
   ];
 
   const handleGenreClick = (genre) => {
-    setActiveGenre(genre); // Update the active genre when a button is clicked
+    setActiveGenre(genre);
   };
+
+  
+  const filteredBooks = activeGenre === 'All' ? books : books.filter(book => book.category === activeGenre);
 
   return (
     <div className='p-4 pb-32' style={{ backgroundColor: "#0E0E12" }}>
@@ -23,8 +27,8 @@ const GenreSection = () => {
             <button
               onClick={() => handleGenreClick(genre)}
               className={`text-sm px-3 font-semibold w-full h-full flex items-center justify-center 
-                ${activeGenre === genre ? 'bg-[#ECEDF0] text-[#222227]' : 'bg-[#222227] text-[#6A7185]'}
-              `}
+                ${activeGenre === genre ? 'bg-[#ECEDF0] text-[#222227]' : 'bg-[#222227] text-[#6A7185]'}`}
+              aria-pressed={activeGenre === genre}
             >
               {genre}
             </button>
@@ -32,24 +36,21 @@ const GenreSection = () => {
         ))}
       </div>
       <div className='grid grid-cols-3 gap-[7px]'>
-        
-        <img src="https://iansportalimages.s3.amazonaws.com/images/202310144069407.jpeg" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0' loading='lazy' />
-        <img src="https://static-koimoi.akamaized.net/wp-content/new-galleries/2023/07/bholaa-shankar-001.jpg" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0' loading='lazy' />
-        <img src="https://wallpaperaccess.com/full/9041172.jpg" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0' loading='lazy' />
-        <img src="https://iansportalimages.s3.amazonaws.com/images/202310144069407.jpeg" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0' loading='lazy' />
-        <img src="https://static-koimoi.akamaized.net/wp-content/new-galleries/2023/07/bholaa-shankar-001.jpg" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0' loading='lazy' />
-        <img src="https://wallpaperaccess.com/full/9041172.jpg" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0' loading='lazy' />
-        <img src="https://iansportalimages.s3.amazonaws.com/images/202310144069407.jpeg" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0' loading='lazy' />
-        <img src="https://static-koimoi.akamaized.net/wp-content/new-galleries/2023/07/bholaa-shankar-001.jpg" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0' loading='lazy' />
-        <img src="https://wallpaperaccess.com/full/9041172.jpg" alt="pic1" className='w-[102px] h-[144px] flex-shrink-0' loading='lazy' />
-        
-        
+        {filteredBooks.map((book, index) => (
+          <img
+            key={index}
+            src={book.picture} // Assuming each book has a coverImage property
+            alt={`Cover of ${book.title}`} // Ensure you have a title for better accessibility
+            className='w-[102px] h-[144px] flex-shrink-0'
+            loading='lazy'
+          />
+        ))}
       </div>
       <button className='bg-[#222227] text-[#6A7185] w-full font-normal mt-4 p-2' style={{ fontSize: "14px", fontWeight: "500" }}>
         View More
       </button>
     </div>
   );
-}
+};
 
 export default GenreSection;
