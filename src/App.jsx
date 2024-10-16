@@ -8,7 +8,7 @@ import OtpVerify from './components/login/OtpVerify';
 import { BooksProvider } from './components/Context/BooksContext'; // Import the BooksProvider
 import { CartProvider } from './components/Context/CartContext';
 import Cart from './components/homescreen/Cart';
-import PaymentForm from './components/homescreen/payment';
+
 import PaymentSuccess from './components/homescreen/PaymentSuccess';
 
 const App = () => {
@@ -23,7 +23,6 @@ const App = () => {
               <Route exact path='/otp' element={<OtpVerify />} />
               <Route exact path='/login' element={<Login />} />
               <Route exact path='/cart' element={<Cart/>}/>
-              <Route exact path='/payments' element={<PaymentForm/>}/>
               <Route exact path='/successPayment' element={<PaymentSuccess/>}/>
             </Routes>
           </div>
