@@ -62,12 +62,7 @@ const Cart = () => {
                                 <p className="text-xl font-bold text-blue-500"><span className='flex justify-center items-center'><FaRupeeSign/>{total}</span></p>
                             </div>
                         </div>
-                        <Link 
-                            to="/checkout" 
-                            className="bg-blue-600 text-white px-4 py-2 rounded-lg mt-4 inline-block w-full text-center transition duration-200 hover:bg-blue-700"
-                        >
-                            Proceed to Checkout
-                        </Link>
+                    <button onClick={()=>navigate("/payments")} className='bg-white mt-4 w-full rounded-lg p-3 text-black font-semibold'>Order Now</button>
                     </div>
                 )}
             </div>
