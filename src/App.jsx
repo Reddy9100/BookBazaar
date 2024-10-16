@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { Suspense, lazy, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import HomeScreen from './components/homescreen/HomeScreen';
 import Navbar from './components/Navbar';
-import LanguageForm from './components/adminUpload/form';
-import Login from './components/login/Login';
-import OtpVerify from './components/login/OtpVerify';
-import { BooksProvider } from './components/Context/BooksContext'; // Import the BooksProvider
+import { BooksProvider } from './components/Context/BooksContext';
 import { CartProvider } from './components/Context/CartContext';
-import Cart from './components/homescreen/Cart';
+import Lottie from 'lottie-react';
+import loadingAnimation from "./assets/book.json";
 
-import PaymentSuccess from './components/homescreen/PaymentSuccess';
+const HomeScreen = lazy(() => import('./components/homescreen/HomeScreen'));
+const LanguageForm = lazy(() => import('./components/adminUpload/form'));
+const Login = lazy(() => import('./components/login/Login'));
+const OtpVerify = lazy(() => import('./components/login/OtpVerify'));
+const Cart = lazy(() => import('./components/homescreen/Cart'));
+const PaymentSuccess = lazy(() => import('./components/homescreen/PaymentSuccess'));
 
 const App = () => {
   return (
@@ -18,13 +20,15 @@ const App = () => {
         <CartProvider>
           <div className='font-sans'>
             <ConditionalNavbar />
-            <Routes>
-              <Route exact path='/' element={<HomeScreen />} />
-              <Route exact path='/otp' element={<OtpVerify />} />
-              <Route exact path='/login' element={<Login />} />
-              <Route exact path='/cart' element={<Cart/>}/>
-              <Route exact path='/successPayment' element={<PaymentSuccess/>}/>
-            </Routes>
+            <Suspense fallback={<Loader />}>
+              <Routes>
+                <Route exact path='/' element={<LoadWithDelay component={<HomeScreen />} />} />
+                <Route exact path='/otp' element={<LoadWithDelay component={<OtpVerify />} />} />
+                <Route exact path='/login' element={<LoadWithDelay component={<Login />} />} />
+                <Route exact path='/cart' element={<LoadWithDelay component={<Cart />} />} />
+                <Route exact path='/successPayment' element={<LoadWithDelay component={<PaymentSuccess />} />} />
+              </Routes>
+            </Suspense>
           </div>
         </CartProvider>
       </BooksProvider>
@@ -32,13 +36,42 @@ const App = () => {
   );
 };
 
-
-// Component to conditionally render Navbar based on the current route
 const ConditionalNavbar = () => {
   const location = useLocation();
-
-  // Only show Navbar on the HomeScreen
   return location.pathname === '/' || location.pathname === "/cart" ? <Navbar /> : null;
+};
+
+const LoadWithDelay = ({ component }) => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+
+    return () => {
+      setLoading(true);
+      clearTimeout(timer);
+    };
+  }, [component]);
+
+  return loading ? (
+    <Loader />
+  ) : (
+    component
+  );
+};
+
+const Loader = () => {
+  return (
+    <div className='flex justify-center items-center h-screen'>
+      <Lottie 
+        animationData={loadingAnimation} 
+        width={200} 
+        height={200} 
+      />
+    </div>
+  );
 };
 
 export default App;

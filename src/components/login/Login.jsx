@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 const Login = () => {
   const [email, setEmail] = useState("");
+  const[loading,setIsLoading] = useState(false)
   const [Otp, setOtp] = useState("");
   const navigate = useNavigate();
 
@@ -16,6 +17,7 @@ const Login = () => {
 
   const onFormSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true)
 
     try {
       const response = await axios.post("https://bookbazaarserver.onrender.com/login", {
@@ -25,6 +27,7 @@ const Login = () => {
       if (response.status === 200) {
         toast.success(response.data.message);
         setOtp(response.data.data);
+        setIsLoading(false)
         const emailData = response.data.mail;
 
         setTimeout(()=>{
@@ -59,12 +62,17 @@ const Login = () => {
             className="p-2 text-white mt-6 text-sm bg-slate-400 placeholder:text-white placeholder:text-sm"
             onChange={OnChangeEmail}
           />
-          <button
+          {loading ? <button
+            type="submit"
+            className="bg-main animate-wiggle text-white rounded-lg w-36 p-2 mt-6"
+          >
+            Sending Otp
+          </button> : <button
             type="submit"
             className="bg-main animate-wiggle text-white rounded-lg w-36 p-2 mt-6"
           >
             Send Otp
-          </button>
+          </button>}
         </form>
       </div>
     </>

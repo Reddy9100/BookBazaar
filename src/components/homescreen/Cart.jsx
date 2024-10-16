@@ -68,7 +68,7 @@ const Cart = () => {
         };
 
         try {
-            const response = await fetch(`https://bookbazaarserver.onrender.com/payment`, {
+            const response = await fetch(`https://bookbazaar-10gv.onrender.com/payment`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
