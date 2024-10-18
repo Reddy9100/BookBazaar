@@ -74,7 +74,7 @@ const Cart = () => {
         };
 
         try {
-            const response = await fetch(`http://localhost:5000/payment`, {
+            const response = await fetch("https://bookbazaarserver.onrender.com/payment", {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
@@ -100,7 +100,7 @@ const Cart = () => {
 
     return (
         <>
-            <div className="cart-container min-h-[100vh] flex flex-col justify-center items-center overflow-y-auto mx-auto bg-main shadow-lg p-4">
+            <div className="cart-container min-h-[100vh] flex flex-col justify-center items-center overflow-y-auto mx-auto bg-custom-dark shadow-lg p-4">
                 <Toaster />
                 <div className='flex justify-center items-center w-full mb-4'>
                     <h2 className="text-3xl font-bold text-white">Your Cart</h2>
@@ -109,7 +109,7 @@ const Cart = () => {
                     <>
                         <Lottie animationData={empty} className='h-[150px]' />
                         <p className="text-center text-gray-400">Your cart is empty.</p>
-                        <button className='rounded-lg mt-3 p-2 animate-pulse bg-white text-spotify-accent' onClick={() => navigate("/")}>Shop Now</button>
+                        <button className='rounded-lg mt-3 p-2 animate-pulse font-bold bg-white text-spotify-accent' onClick={() => navigate("/")}>Shop Now</button>
                     </>
                 ) : (
                     <div className="w-full">

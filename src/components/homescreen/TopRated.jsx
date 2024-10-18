@@ -103,7 +103,7 @@ const TopRated = () => {
         {!showAll && Horror.length > 5 && (
           <button
             onClick={handleShowAll}
-            className="w-[154px] flex flex-col justify-center items-center h-[216px] flex-shrink-0 bg-[#222227]  "
+            className="w-[124px] flex flex-col justify-center items-center h-[216px] flex-shrink-0 bg-[#222227]  "
           >
             <img
               src={view}
