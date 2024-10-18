@@ -62,7 +62,7 @@ const navigate = useNavigate()
 
   const handleResendOtp = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/resend-otp", {
+      const response = await axios.post("https://bookbazaarserver.onrender.com/resend-otp", {
         email: Email,
       });
       if (response.data.success) {

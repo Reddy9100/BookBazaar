@@ -5,6 +5,7 @@ import { BooksProvider } from './components/Context/BooksContext';
 import { CartProvider } from './components/Context/CartContext';
 import Lottie from 'lottie-react';
 import loadingAnimation from "./assets/book.json";
+import AboutMe from './components/homescreen/aboutMe';
 
 const HomeScreen = lazy(() => import('./components/homescreen/HomeScreen'));
 const LanguageForm = lazy(() => import('./components/adminUpload/form'));
@@ -27,6 +28,7 @@ const App = () => {
                 <Route exact path='/login' element={<LoadWithDelay component={<Login />} />} />
                 <Route exact path='/cart' element={<LoadWithDelay component={<Cart />} />} />
                 <Route exact path='/successPayment' element={<LoadWithDelay component={<PaymentSuccess />} />} />
+                <Route exact path='/about' element={<LoadWithDelay component={<AboutMe />} />} />
               </Routes>
             </Suspense>
           </div>
@@ -38,7 +40,9 @@ const App = () => {
 
 const ConditionalNavbar = () => {
   const location = useLocation();
-  return location.pathname === '/' || location.pathname === "/cart" ? <Navbar /> : null;
+  const hideNavbarPaths = ['/login', '/otp'];
+  
+  return hideNavbarPaths.includes(location.pathname) ? null: <Navbar/>;
 };
 
 const LoadWithDelay = ({ component }) => {
@@ -55,11 +59,7 @@ const LoadWithDelay = ({ component }) => {
     };
   }, [component]);
 
-  return loading ? (
-    <Loader />
-  ) : (
-    component
-  );
+  return loading ? <Loader /> : component;
 };
 
 const Loader = () => {

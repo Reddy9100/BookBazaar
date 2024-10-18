@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 const Login = () => {
+  const[name,setName] = useState("")
   const [email, setEmail] = useState("");
   const[loading,setIsLoading] = useState(false)
   const [Otp, setOtp] = useState("");
@@ -15,18 +16,22 @@ const Login = () => {
     setEmail(e.target.value);
   };
 
+  const onNameChange = (e) =>{
+    setName(e.target.value)
+  }
+
   const onFormSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true)
+    
+    
 
     try {
-      const response = await axios.post("https://bookbazaarserver.onrender.com/login", {
-        email,
-      });
-
+      const response = await axios.post("https://bookbazaarserver.onrender.com/login", {name,email})
       if (response.status === 200) {
         toast.success(response.data.message);
         setOtp(response.data.data);
+        localStorage.setItem("bookUser", JSON.stringify({ name, email }));
         setIsLoading(false)
         const emailData = response.data.mail;
 
@@ -55,11 +60,19 @@ const Login = () => {
             Login
           </h1></Link>
           <input
+          type="text"
+          value={name}
+          onChange={onNameChange}
+          className="p-2 text-white mt-6 text-sm bg-slate-400 placeholder:text-white placeholder:text-sm"
+          placeholder="Enter your Name"
+          required/>
+
+          <input
             type="email"
             value={email}
             placeholder="Enter Email"
             required
-            className="p-2 text-white mt-6 text-sm bg-slate-400 placeholder:text-white placeholder:text-sm"
+            className="p-2  text-white mt-6 text-sm bg-slate-400 placeholder:text-white placeholder:text-sm"
             onChange={OnChangeEmail}
           />
           {loading ? <button

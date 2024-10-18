@@ -12,7 +12,7 @@ const Cart = () => {
     const { cart, removeFromCart } = useCartContext();
     const navigate = useNavigate();
     const [total, setTotal] = useState(0);
-    const [address, setAddress] = useState('');
+    const [Useraddress, setAddress] = useState('');
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -30,6 +30,7 @@ const Cart = () => {
             }
             const data = await response.json();
             setAddress(data.display_name);
+            
             toast.success('Address fetched successfully!');
             setModalIsOpen(false);
         } catch (error) {
@@ -55,8 +56,12 @@ const Cart = () => {
         }
     };
 
+    console.log(Useraddress)
     const handleBuyNow = async () => {
         setModalIsOpen(true);
+
+        const storedUser = JSON.parse(localStorage.getItem("bookUser"))
+        const email = storedUser.email
         
             handleFetchLocation();
         
@@ -64,11 +69,12 @@ const Cart = () => {
             const payload = {
             items: cart,
             totalAmount: total,
-            address,
+            Useraddress,
+            email
         };
 
         try {
-            const response = await fetch(`https://bookbazaarserver.onrender.com/payment`, {
+            const response = await fetch(`http://localhost:5000/payment`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
