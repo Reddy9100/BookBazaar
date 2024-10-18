@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Lottie from 'lottie-react';
-import notFoundAnimation from '../assets/notFound.json'; 
+import notFoundAnimation from '../assets/notfound.json'; 
 import { useNavigate } from 'react-router-dom';
 
 const NotFound = () => {
