@@ -5,7 +5,7 @@ import { BooksProvider } from './components/Context/BooksContext';
 import { CartProvider } from './components/Context/CartContext';
 import Lottie from 'lottie-react';
 import loadingAnimation from "./assets/book.json";
-import AboutMe from './components/homescreen/AboutMe';
+import AboutMe from './components/homescreen/aboutMe';
 import Orders from './components/homescreen/Orders';
 import NotFound from './components/NotFound';
 import ProtectedRoute from './components/ProtectedRoute';
