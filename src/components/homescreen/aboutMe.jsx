@@ -52,8 +52,7 @@ const AboutMe = () => {
     }
   };
 
-  const SM = JSON.parse(localStorage.getItem("bookUser"))
-  const email = SM.email.toLowerCase()
+ 
 
 
   const fetchOrders = async() =>{
@@ -61,13 +60,16 @@ const AboutMe = () => {
   }
 
   useEffect(() => {
+    const SM = JSON.parse(localStorage.getItem("bookUser"))
+    const email = SM.email.toLowerCase()
     getGeolocation(); 
     
   }, []);
 
   const logout = () =>{
+    localStorage.removeItem("bookUSer")
     Cookie.remove("userToken")
-
+    
     toast("Logged Out")
     setTimeout(() => {
       navigate("/login")

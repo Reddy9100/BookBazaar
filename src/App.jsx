@@ -5,7 +5,7 @@ import { BooksProvider } from './components/Context/BooksContext';
 import { CartProvider } from './components/Context/CartContext';
 import Lottie from 'lottie-react';
 import loadingAnimation from "./assets/book.json";
-import AboutMe from './components/homescreen/aboutMe';
+import AboutMe from './components/homescreen/AboutMe';
 import Orders from './components/homescreen/Orders';
 import NotFound from './components/NotFound';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -38,7 +38,7 @@ const App = () => {
           <Routes>
             <Route path='/login' element={<Login />} />
             <Route path='/otp' element={<OtpVerify />} />
-            <Route path='/' element={<ProtectedRoute><HomeScreen /></ProtectedRoute>} />
+            <Route path='/' element={<HomeScreen />} />
             <Route path='/about' element={<ProtectedRoute><AboutMe /></ProtectedRoute>} />
             <Route path='/orders' element={<ProtectedRoute><Orders /></ProtectedRoute>} />
             <Route path='/cart' element={<ProtectedRoute><Cart /></ProtectedRoute>} />
@@ -63,9 +63,9 @@ const WrappedApp = () => (
 
 const ConditionalNavbar = () => {
   const location = useLocation();
-  const hideNavbarPaths = ['/login', '/otp'];
+  const hideNavbarPaths = ['/login', '/otp', '*']; 
 
-  return hideNavbarPaths.includes(location.pathname) ? null : <Navbar />;
+  return hideNavbarPaths.includes(location.pathname) || location.pathname === '*' ? null : <Navbar />;
 };
 
 const Loader = () => (

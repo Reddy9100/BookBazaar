@@ -31,7 +31,7 @@ const Login = () => {
       if (response.status === 200) {
         toast.success(response.data.message);
         setOtp(response.data.data);
-        localStorage.setItem("bookUser", JSON.stringify({ name, email }));
+        localStorage.setItem("bookUser", JSON.stringify({ name : name, email:email }));
         setIsLoading(false)
         const emailData = response.data.mail;
 

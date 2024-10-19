@@ -57,45 +57,52 @@ const Cart = () => {
     };
 
     console.log(Useraddress)
-    const handleBuyNow = async () => {
-        setModalIsOpen(true);
+   const handleBuyNow = async () => {
+    setModalIsOpen(true);
 
-        const storedUser = JSON.parse(localStorage.getItem("bookUser"))
-        const email = storedUser.email
-        
-            handleFetchLocation();
-        
-        setTimeout(async()=>{
-            const payload = {
+    const storedUser = JSON.parse(localStorage.getItem("bookUser"));
+    const email = storedUser.email;
+    handleFetchLocation();
+
+    setTimeout(async () => {
+        const payload = {
             items: cart,
             totalAmount: total,
             Useraddress,
             email
         };
 
-        try {
-            const response = await fetch("https://bookbazaarserver.onrender.com/payment", {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload),
-            });
+        const makePaymentRequest = async (retryCount = 0) => {
+            try {
+                const response = await fetch("https://bookbazaarserver.onrender.com/payment", {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
 
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
+                if (!response.ok) {
+                    if (retryCount < 1) {
+                        return makePaymentRequest(retryCount + 1);
+                    } else {
+                        throw new Error('Failed after retrying');
+                    }
+                }
 
-            const data = await response.json();
-            if (data.success && data.url) {
-                window.location.href = data.url;
-            } else {
-                toast.error(data.error || 'An error occurred. Please try again.');
+                const data = await response.json();
+                if (data.success && data.url) {
+                    window.location.href = data.url;
+                } else {
+                    toast.error(data.error || 'An error occurred. Please try again.');
+                }
+            } catch (error) {
+                toast.error(`Payment failed: ${error.message}`);
             }
-        } catch (error) {
-            toast.error(`Payment failed: ${error.message}`);
-        }
-    },6000)
-    };
-    
+        };
+
+        await makePaymentRequest();
+    }, 6000);
+};
+
 
 
     return (

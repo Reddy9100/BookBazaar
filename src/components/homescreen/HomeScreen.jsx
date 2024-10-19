@@ -6,9 +6,9 @@ import TopRated from './TopRated';
 import ScreeningSoon from './ScreeningSoon';
 import Advertisements from './Advertisements'; 
 import GenreSection from './GenreSection';
-import { useNavigate } from 'react-router-dom';
+
 import { useCartContext } from '../Context/CartContext';
-import Cookie from "js-cookie";
+
 import { IoMdAdd, IoMdRemove } from "react-icons/io";
 
 const HomeScreen = () => {
@@ -18,16 +18,10 @@ const HomeScreen = () => {
   const [selectedBook, setSelectedBook] = useState(null);
   const [quantity, setQuantity] = useState(1); 
   const carouselRef = React.useRef();
-  const navigate = useNavigate();
+ 
   const { addToCart } = useCartContext();
 
-  useEffect(() => {
-    const validUser = Cookie.get("userToken");
-    if (!validUser) {
-      navigate("/login");
-    }
-  }, [navigate]);
-
+  
   const carouselBooks = books.slice(0, 5);
 
   const handleChange = (current) => {
