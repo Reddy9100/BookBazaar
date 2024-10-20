@@ -14,6 +14,7 @@ const HomeScreen = lazy(() => import('./components/homescreen/HomeScreen'));
 const Login = lazy(() => import('./components/login/Login'));
 const OtpVerify = lazy(() => import('./components/login/OtpVerify'));
 const Cart = lazy(() => import('./components/homescreen/Cart'));
+const Search = lazy(() => import('./components/homescreen/Search'));
 const PaymentSuccess = lazy(() => import('./components/homescreen/PaymentSuccess'));
 
 const App = () => {
@@ -41,6 +42,7 @@ const App = () => {
             <Route path='/' element={<HomeScreen />} />
             <Route path='/about' element={<ProtectedRoute><AboutMe /></ProtectedRoute>} />
             <Route path='/orders' element={<ProtectedRoute><Orders /></ProtectedRoute>} />
+            <Route path='/search' element={<ProtectedRoute><Search /></ProtectedRoute>} />
             <Route path='/cart' element={<ProtectedRoute><Cart /></ProtectedRoute>} />
             <Route path='/successPayment' element={<ProtectedRoute><PaymentSuccess /></ProtectedRoute>} />
             <Route path="*" element={<NotFound />} />

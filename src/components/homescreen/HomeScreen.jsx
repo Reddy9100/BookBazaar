@@ -5,7 +5,7 @@ import NowOnScreen from './NowOnScreen';
 import TopRated from './TopRated';
 import ScreeningSoon from './ScreeningSoon';
 import Advertisements from './Advertisements'; 
-import GenreSection from './GenreSection';
+
 
 import { useCartContext } from '../Context/CartContext';
 
@@ -129,7 +129,7 @@ backgroundPosition: "center"
       <TopRated />
       <ScreeningSoon />
       <Advertisements />
-      <GenreSection />
+     
 
       <Drawer
         title={

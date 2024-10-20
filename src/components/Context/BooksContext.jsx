@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -8,6 +7,7 @@ export const BooksProvider = ({ children }) => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -25,8 +25,20 @@ export const BooksProvider = ({ children }) => {
     fetchBooks();
   }, []);
 
+
+  const filteredBooks = books.filter(book => {
+    const lowerCaseSearchTerm = searchTerm.toLowerCase();
+    return (
+      book.title.toLowerCase().includes(lowerCaseSearchTerm) ||
+      book.author.toLowerCase().includes(lowerCaseSearchTerm) ||
+      book.category.toLowerCase().includes(lowerCaseSearchTerm)
+    );
+  });
+  
+
+
   return (
-    <BooksContext.Provider value={{ books, loading, error }}>
+    <BooksContext.Provider value={{ books, loading, error, filteredBooks, setSearchTerm }}>
       {children}
     </BooksContext.Provider>
   );
