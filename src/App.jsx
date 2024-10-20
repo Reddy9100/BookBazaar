@@ -9,6 +9,7 @@ import AboutMe from './components/homescreen/aboutMe';
 import Orders from './components/homescreen/Orders';
 import NotFound from './components/NotFound';
 import ProtectedRoute from './components/ProtectedRoute';
+import Footer from './Footer';
 
 const HomeScreen = lazy(() => import('./components/homescreen/HomeScreen'));
 const Login = lazy(() => import('./components/login/Login'));
@@ -29,9 +30,11 @@ const App = () => {
     return () => clearTimeout(timer);
   }, [location.pathname]);
 
+  const shouldHideComponents = ['/login', '/otp'].includes(location.pathname) || location.pathname === '*';
+
   return (
     <div className='font-sans'>
-      <ConditionalNavbar />
+      {!shouldHideComponents && <Navbar />}
       {loading ? (
         <Loader />
       ) : (
@@ -49,6 +52,7 @@ const App = () => {
           </Routes>
         </Suspense>
       )}
+      {!shouldHideComponents && <Footer />}
     </div>
   );
 };
@@ -62,13 +66,6 @@ const WrappedApp = () => (
     </CartProvider>
   </BooksProvider>
 );
-
-const ConditionalNavbar = () => {
-  const location = useLocation();
-  const hideNavbarPaths = ['/login', '/otp', '*']; 
-
-  return hideNavbarPaths.includes(location.pathname) || location.pathname === '*' ? null : <Navbar />;
-};
 
 const Loader = () => (
   <div className='flex justify-center items-center h-screen'>

@@ -10,12 +10,14 @@ import Cookie from "js-cookie"
 import { useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 
-const storedUser = JSON.parse(localStorage.getItem("bookUser"));
-const name = storedUser ? storedUser.name : "Guest";
 
 const AboutMe = () => {
   const [location, setLocation] = useState("Location Not Found");
   const [coordinates, setCoordinates] = useState({ latitude: null, longitude: null });
+
+  const storedUser = JSON.parse(localStorage.getItem("bookUser"));
+const name = storedUser ? storedUser.name : "Guest";
+
 
   const navigate = useNavigate()
 

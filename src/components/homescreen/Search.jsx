@@ -38,12 +38,18 @@ const Search = () => {
     }
   };
 
+  const storedUser = JSON.parse(localStorage.getItem("bookUser"));
+  const name = storedUser ? storedUser.name : "Guest";
+  const firstLetter = name[0].toUpperCase()
+
+
+
   return (
     <div className='bg-custom-dark p-5 min-h-screen'>
       <div className='flex items-center mb-4'>
         <div className='bg-white flex justify-center items-center rounded-full p-3 h-10 w-10'>
           <Link to="/search">
-            <h1 className='font-bold text-spotify-accent'>K</h1>
+            <h1 className='font-bold text-spotify-accent'>{firstLetter}</h1>
           </Link>
         </div>
         <h1 className='font-bold ml-2 text-white'>Search</h1>
@@ -91,18 +97,18 @@ const Search = () => {
         </div>
       </div>
 
-      <div className="mt-4 w-full">
+      <div className="mt-4 h-screen overflow-y-auto w-full">
         {loading && <p className="text-white">Loading...</p>}
         {error && <p className="text-white">Error fetching books!</p>}
         {filteredBooks.length > 0 ? (
           <div className="flex w-full justify-center">
-            <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4">
+            <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-10">
               {filteredBooks.map(book => (
                 <li key={book.id} className="flex-shrink-0">
                   <img 
                     src={book.picture} 
                     alt={book.title} 
-                    className="w-full min-h-[200px] max-h-[500px] object-cover rounded cursor-pointer" 
+                    className="w-full h-[200px] md:h-[350px] max-h-[500px] object-cover rounded cursor-pointer" 
                     onClick={() => openDrawer(book)} // Open drawer on click
                   />
                 </li>

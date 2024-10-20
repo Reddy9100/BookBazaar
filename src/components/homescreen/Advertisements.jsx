@@ -65,8 +65,8 @@ const Advertisements = () => {
           ))}
         </Carousel>
         
-        {/* Custom Dots */}
-        <div className="flex justify-center space-x-1 mt-2">
+        
+        <div className="flex justify-center space-x-1 mt-1">
           {bookQuotes.map((_, index) => (
             <div
               key={index}

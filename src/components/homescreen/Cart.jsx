@@ -14,7 +14,7 @@ const Cart = () => {
     const [total, setTotal] = useState(0);
     const [Useraddress, setAddress] = useState('');
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const calculatedTotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
@@ -31,10 +31,10 @@ const Cart = () => {
             const data = await response.json();
             setAddress(data.display_name);
             
-            toast.success('Address fetched successfully!');
-            setModalIsOpen(false);
+            return data.display_name; // Return the fetched address
         } catch (error) {
             toast.error('Failed to fetch address');
+            return null; // Return null on error
         } finally {
             setIsLoading(false);
         }
@@ -42,13 +42,24 @@ const Cart = () => {
 
     const handleFetchLocation = () => {
         if (navigator.geolocation) {
+            setIsLoading(true);
             navigator.geolocation.getCurrentPosition(
-                (position) => {
+                async (position) => {
                     const { latitude, longitude } = position.coords;
-                    fetchAddress(latitude, longitude);
+                    const fetchedAddress = await fetchAddress(latitude, longitude);
+                    if (fetchedAddress) {
+                       
+                        setModalIsOpen(true);
+                        setTimeout(() => {
+                            handleBuyNow(fetchedAddress); 
+                            toast.success('Address fetched successfully!');
+                        }, 4000); 
+                       
+                    }
                 },
                 () => {
                     toast.error('Geolocation access denied');
+                    setIsLoading(false); 
                 }
             );
         } else {
@@ -56,54 +67,46 @@ const Cart = () => {
         }
     };
 
-    console.log(Useraddress)
-   const handleBuyNow = async () => {
-    setModalIsOpen(true);
+    const handleBuyNow = async (address) => {
+        const storedUser = JSON.parse(localStorage.getItem("bookUser"));
+        const email = storedUser.email;
 
-    const storedUser = JSON.parse(localStorage.getItem("bookUser"));
-    const email = storedUser.email;
-    handleFetchLocation();
-
-    setTimeout(async () => {
         const payload = {
             items: cart,
             totalAmount: total,
-            Useraddress,
+            Useraddress: address, 
             email
         };
 
-        const makePaymentRequest = async (retryCount = 0) => {
-            try {
-                const response = await fetch("https://bookbazaarserver.onrender.com/payment", {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload),
-                });
+        
+        await makePaymentRequest(payload);
+    };
 
-                if (!response.ok) {
-                    if (retryCount < 1) {
-                        return makePaymentRequest(retryCount + 1);
-                    } else {
-                        throw new Error('Failed after retrying');
-                    }
-                }
+    const makePaymentRequest = async (payload, retryCount = 0) => {
+        try {
+            const response = await fetch("https://bookbazaarserver.onrender.com/payment", {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            });
 
-                const data = await response.json();
-                if (data.success && data.url) {
-                    window.location.href = data.url;
-                } else {
-                    toast.error(data.error || 'An error occurred. Please try again.');
+            if (!response.ok) {
+                if (retryCount < 1) {
+                    return makePaymentRequest(payload, retryCount + 1); // Retry once
                 }
-            } catch (error) {
-                toast.error(`Payment failed: ${error.message}`);
+                throw new Error('Payment API failed after retrying');
             }
-        };
 
-        await makePaymentRequest();
-    }, 6000);
-};
-
-
+            const data = await response.json();
+            if (data.success && data.url) {
+                window.location.href = data.url;
+            } else {
+                throw new Error(data.error || 'An error occurred. Please try again.');
+            }
+        } catch (error) {
+            toast.error(`Payment failed: ${error.message}`);
+        }
+    };
 
     return (
         <>
@@ -148,15 +151,14 @@ const Cart = () => {
                                 <p className="text-xl font-bold text-blue-500"><span className='flex justify-center items-center'><FaRupeeSign />{total}</span></p>
                             </div>
                         </div>
-                        <button onClick={handleBuyNow} className='bg-white mt-4 w-full rounded-lg p-3 text-black font-semibold'>Buy Now</button>
+                        <button onClick={handleFetchLocation} className='bg-white mt-4 w-full rounded-lg p-3 text-black font-semibold'>Buy Now</button>
                     </div>
                 )}
             </div>
             <Modal open={modalIsOpen} closable={false} footer={null} className='flex justify-center items-center'>
-        {isLoading && (
-          <Lottie animationData={addressAnimation} style={{ width: 200, height: 300 }} />
-        )}
-      </Modal>
+                <Lottie animationData={addressAnimation} style={{ width: 200, height: 300 }} />
+                {isLoading && <p className="text-center text-white">Fetching address...</p>}
+            </Modal>
         </>
     );
 };
